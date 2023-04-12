@@ -1,2 +1,4 @@
 cnn/__pycache__
 cnn/logs
+cnn/resnet50-2epoch.json
+cnn/resnet50-2epoch.h5
