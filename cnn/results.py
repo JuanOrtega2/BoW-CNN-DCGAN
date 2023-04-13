@@ -77,7 +77,7 @@ class Results:
         print(confusion_df)
         print("\nAccuracy: ", accuracy)
 
-    def save(self, confusion_matrix: np.ndarray, classification: List[Tuple[str, str, str]], predictions: List[List[float]]):
+    def save(self, confusion_matrix: np.ndarray, classification: List[Tuple[str, str, str]], predictions: List[List[float]], filename: str=""):
         """Save results to an Excel file.
 
         Every argument is stored in its own sheet.
@@ -99,7 +99,7 @@ class Results:
 
         # Write to Excel
         workbook = self._dataset_name.lower().replace(" ", "_") + '_' if self._dataset_name else ""
-        workbook += "results.xlsx"
+        workbook += filename+"results.xlsx"
 
         with pd.ExcelWriter(workbook) as writer:
             confusion_df.to_excel(writer, sheet_name='Confusion matrix', index_label='KNOWN/PREDICTED')

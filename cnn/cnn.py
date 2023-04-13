@@ -136,7 +136,7 @@ class CNN:
         if epochs > 1:
             self._plot_training(history)
 
-    def predict(self, test_dir: str, dataset_name: str = "", save: bool = True):
+    def predict(self, test_dir: str, dataset_name: str = "", save: bool = True, filename: str=""):
         """Evaluates a new set of images using the trained CNN.
 
         Args:
@@ -169,7 +169,7 @@ class CNN:
         results.print(accuracy, confusion_matrix)
 
         if save:
-            results.save(confusion_matrix, classification, predictions)
+            results.save(confusion_matrix, classification, predictions, filename)
 
     def load(self, filename: str):
         """Loads a trained CNN model and the corresponding preprocessing information.
